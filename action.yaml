@@ -1,5 +1,6 @@
-icon: 'triangle'
-brandColor: 'gray-dark'
+branding:
+  icon: triangle
+  color: black
 
 name: Use Vercel Envs in GitHub Actions
 description: "Use Vercel Envs in GitHub Actions"
