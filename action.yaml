@@ -1,5 +1,8 @@
-name: Export Vercel Envs to GitHub Actions
-description: Export Vercel Envs to GitHub Actions
+icon: 'triangle'
+brandColor: 'gray-dark'
+
+name: Use Vercel Envs in GitHub Actions
+description: "Use Vercel Envs in GitHub Actions"
 
 inputs:
   project-id:
