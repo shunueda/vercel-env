@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vite-node src/index.ts",
     "build": "ncc build src/index.ts --quiet",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "build:test": "ncc build test/index.ts --quiet -o test/dist",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",

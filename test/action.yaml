@@ -1,0 +1,5 @@
+name: Test action
+description: Test action
+runs:
+  using: node20
+  main: dist/index.js

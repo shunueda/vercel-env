@@ -1,13 +1,16 @@
 import { getInput } from '@actions/core'
 
 const InputsDefinition = {
-  'project-id': {
+  PROJECT_ID: {
+    name: 'project-id',
     required: true
   },
-  token: {
+  TOKEN: {
+    name: 'token',
     required: true
   },
-  target: {
+  TARGET: {
+    name: 'target',
     required: false,
     default: 'production'
   }
@@ -17,11 +20,13 @@ type Inputs = {
   [K in keyof typeof InputsDefinition]: string
 }
 
-const Inputs = Object.entries(InputsDefinition).reduce((acc, [key, def]) => {
-  const value = getInput(key, {
-    required: def.required
-  })
-  return { ...acc, [key]: value ? value : (def as any).default }
+const Inputs = Object.keys(InputsDefinition).reduce((acc, key) => {
+  const entry = InputsDefinition[key as keyof typeof InputsDefinition]
+  const value =
+    getInput(entry.name.toUpperCase(), {
+      required: entry.required
+    }) || (entry as any).default
+  return { ...acc, [key]: value }
 }, {} as Inputs)
 
 export default Inputs
