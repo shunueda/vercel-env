@@ -3,3 +3,10 @@ description: Test action
 runs:
   using: node20
   main: dist/index.js
+inputs:
+  key:
+    description: 'Expected key'
+    required: true
+  value:
+    description: 'Expected value'
+    required: true

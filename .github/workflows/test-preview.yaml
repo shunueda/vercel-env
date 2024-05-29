@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20]
-        vercel-project-id: ['prj_07Mk2x7ljSln8BpzcoI6pLkceac0']
+        node-version: [ 20 ]
+        vercel-project-id: [ 'prj_07Mk2x7ljSln8BpzcoI6pLkceac0' ]
     steps:
-      - uses: actions/setup-node@v4
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - uses: pnpm/action-setup@v4
@@ -25,4 +25,8 @@ jobs:
         with:
           project-id: ${{ matrix.vercel-project-id }}
           token: ${{ secrets.VERCEL_TOKEN }}
+          target: preview
       - uses: ./test
+        with:
+          key: PREVIEW
+          value: PREVIEW_VALUE

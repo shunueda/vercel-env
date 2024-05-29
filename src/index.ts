@@ -1,6 +1,6 @@
 import 'test/utils/injectInputs'
 
-import { exportVariable } from '@actions/core'
+import { exportVariable, setSecret } from '@actions/core'
 import './Inputs'
 import Inputs from './Inputs'
 import api from './vercel/api'
@@ -15,5 +15,6 @@ envs
     const { key, value } = await api<DecryptedEnv>(
       `/v1/projects/${Inputs.PROJECT_ID}/env/${env.id}`
     )
+    setSecret(value)
     exportVariable(key, value)
   })
