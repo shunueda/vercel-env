@@ -25,4 +25,4 @@ jobs:
         with:
           project-id: ${{ matrix.vercel-project-id }}
           token: ${{ secrets.VERCEL_TOKEN }}
-      - run: echo "${{ github.env.PRODUCTION }}  <- this should be hidden"
+      - run: echo "${{ env.PRODUCTION }}  <- this should be hidden"
